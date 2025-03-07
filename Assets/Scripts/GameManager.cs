@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
     {
         currentStep++;
         ShowMiniGame(currentStep);
-        // ShowNextButton(false);
+        ShowNextButton(false);
     }
     
     string GetInstructionForStep(int step)

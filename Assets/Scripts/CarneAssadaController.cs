@@ -26,6 +26,7 @@ public class CarneAssadaController : MonoBehaviour, IDragHandler, IEndDragHandle
             // mensagem.text = "Hambúrguer pronto!";
             Debug.Log("Hambúrguer pronto!");
             // gameObject.SetActive(false); // Esconde a carne assada (já no prato)
+            GameManager.Instance.ShowNextButton(true);
         }
         else
         {

@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      carne-crua_0: 3731987681127613046
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

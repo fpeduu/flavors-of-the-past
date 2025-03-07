@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      carne-assada_0: -7122050274081279354
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
