@@ -4,7 +4,9 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - Plate
+  - Carne
+  - Ingrediente
+  - Pao
   layers:
   - Default
   - TransparentFX
