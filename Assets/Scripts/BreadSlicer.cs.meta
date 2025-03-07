@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 3bdb88154ab6d6eb4be6646271aa0a8a
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - breadTopPrefab: {fileID: 8058680605223708698, guid: fae74746454222087a5c1fe5cb80a62f, type: 3}
+  - breadBottomPrefab: {fileID: 43044280772312970, guid: 29815943bd7ed6dd6b7d9d609a850f92, type: 3}
+  - cuttingLine: {fileID: 4601774825598544682, guid: 0eeef1f52a54e7400980425b282b7143, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
