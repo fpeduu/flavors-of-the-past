@@ -14,7 +14,7 @@ public class BreadCutter : MonoBehaviour
 
     void Start()
     {
-        cuttingLineInstance = Instantiate(cuttingLine, new Vector3(0, 0, 0), Quaternion.identity);
+        cuttingLineInstance = Instantiate(cuttingLine, new Vector3(0, 0, 0), Quaternion.identity, transform.parent);
 
         if (feedbackText != null)
         {
@@ -81,8 +81,8 @@ public class BreadCutter : MonoBehaviour
     {
         Debug.Log($"Cutting Bread at Y: {cutY}, Bread position: {breadPos}");
 
-        GameObject topHalf = Instantiate(breadTopPrefab, breadPos, Quaternion.identity);
-        GameObject bottomHalf = Instantiate(breadBottomPrefab, breadPos, Quaternion.identity);
+        GameObject topHalf = Instantiate(breadTopPrefab, breadPos, Quaternion.identity, transform.parent);
+        GameObject bottomHalf = Instantiate(breadBottomPrefab, breadPos, Quaternion.identity, transform.parent);
 
         topHalf.transform.position = new Vector3(breadPos.x, cutY + breadHeight / 2 + 0.25f, breadPos.z);
 
@@ -94,9 +94,11 @@ public class BreadCutter : MonoBehaviour
         AdjustCollider(topHalf, cutY, true);
         AdjustCollider(bottomHalf, cutY, false);
 
-        Destroy(gameObject);
 
         hasCut = true;
+        
+        GameManager.Instance.ShowNextButton(true);
+        Destroy(gameObject);
     }
 
     void AdjustCollider(GameObject breadHalf, float cutY, bool isTop)

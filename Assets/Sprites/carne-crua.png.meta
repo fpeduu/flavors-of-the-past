@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c25ad7fb2deb25ea38c59fdf7b99f9b9
+guid: 0a1f043af16fe79488b0c401845ca30f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4431494890709657585
-    second: bread_0
+      213: 3731987681127613046
+    second: carne-crua_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bread_0
+      name: carne-crua_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 9
-        width: 555
-        height: 434
+        x: 3
+        y: 45
+        width: 214
+        height: 154
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f08da4f30ea2082c0800000000000000
-      internalID: -4431494890709657585
+      spriteID: 672ceb7e50faac330800000000000000
+      internalID: 3731987681127613046
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      bread_0: -4431494890709657585
+      carne-crua_0: 3731987681127613046
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
