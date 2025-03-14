@@ -5,6 +5,8 @@ public class Prato : MonoBehaviour
     public float velocidade = 3f;
     public float limiteEsquerda = -4f, limiteDireita = 4f;
 
+    private int value = 10;
+
     void Update()
     {
         transform.position += Vector3.right * velocidade * Time.deltaTime;
@@ -20,6 +22,7 @@ public class Prato : MonoBehaviour
         if (other.CompareTag("Macarrao"))
         {
             Destroy(other.gameObject); // O macarrão foi coletado com sucesso
+            Escorredor.instance.UpdateScore(value);
         }
     }
 }

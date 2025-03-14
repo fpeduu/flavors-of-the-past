@@ -6,6 +6,6 @@ public class Macarrao : MonoBehaviour
     
     void Update()
     {
-        transform.position += Vector3.down * velocidadeQueda * Time.deltaTime;
+        // transform.position += Vector3.down * velocidadeQueda * Time.deltaTime;
     }
 }
