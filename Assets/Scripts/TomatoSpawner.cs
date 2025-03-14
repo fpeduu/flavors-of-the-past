@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class TomatoSpawner : MonoBehaviour
 {
     public GameObject tomatoPrefab;
@@ -9,11 +10,12 @@ public class TomatoSpawner : MonoBehaviour
 
     void Start()
     {
-        InvokeRepeating(nameof(SpawnTomato), 0f, spawnRate);
+        InvokeRepeating(nameof(SpawnTomato), 3f, spawnRate);
     }
 
     void SpawnTomato()
     {
+        if (!TomatoGameManager.Instance.isGameActive) return;
         Vector3 spawnPos = new Vector3(Random.Range(minX, maxX), -4f, 0);
         GameObject tomato = Instantiate(tomatoPrefab, spawnPos, Quaternion.identity);
         Rigidbody2D rb = tomato.GetComponent<Rigidbody2D>();
