@@ -141,6 +141,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -509,7 +522,23 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      tomato-smashed_0: -148381642868451313
+      tomato-smashed_1: -2404206583828499432
+      tomato-smashed_10: -5127543946946300493
+      tomato-smashed_11: -633479408735964982
+      tomato-smashed_12: 1140152657508816140
+      tomato-smashed_13: 2261855302054474344
+      tomato-smashed_14: -3579097854807980310
+      tomato-smashed_15: 6278548948808745980
+      tomato-smashed_2: 555107197407568653
+      tomato-smashed_3: 1832035440746810331
+      tomato-smashed_4: -4791394021558054590
+      tomato-smashed_5: 5073556730501504510
+      tomato-smashed_6: -4859771627150786668
+      tomato-smashed_7: 1883769107394643904
+      tomato-smashed_8: -3140285350176277347
+      tomato-smashed_9: 489786513154687741
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

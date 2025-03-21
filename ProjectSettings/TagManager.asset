@@ -8,6 +8,8 @@ TagManager:
   - Ingrediente
   - Pao
   - Macarrao
+  - Panela
+  - Bounds
   layers:
   - Default
   - TransparentFX
