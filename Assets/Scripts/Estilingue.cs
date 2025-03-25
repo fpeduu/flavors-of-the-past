@@ -34,6 +34,9 @@ public class Slingshot : MonoBehaviour
     private bool isCharging = false;
     private bool hasMoreProjectiles = false;
 
+    private float directionProgress = 0f;
+    private float forceProgress = 0f;
+
     private void Start()
     {
         for (int i = 0; i < amountOfProjectiles; i++)
@@ -56,16 +59,18 @@ public class Slingshot : MonoBehaviour
         if (!directionLocked)
         {
             // Oscila a direção da seta
-            float t = Mathf.PingPong(Time.time * directionSpeed, 1);
+            float t = Mathf.PingPong(directionProgress, 1);
             currentAngle = Mathf.Lerp(minAngle, maxAngle, t);
             arrow.rotation = Quaternion.Euler(0, 0, currentAngle);
+            directionProgress+= Time.deltaTime * directionSpeed;
         }
         else if (isCharging)
         {
             // Oscila a força do lançamento
-            float t = Mathf.PingPong(Time.time * forceSpeed, 1);
+            float t = Mathf.PingPong(forceProgress, 1);
             currentForce = Mathf.Lerp(minForce, maxForce, t);
             arrow.localScale = new Vector3(1, 1 + (currentForce / maxForce), 1);
+            forceProgress += Time.deltaTime * forceSpeed;
         }
 
         // Captura input do mouse
@@ -105,6 +110,7 @@ public class Slingshot : MonoBehaviour
         projectile.GetComponent<Almondega>().OnHitPanela += scoreManager.AddScore;
 
         // Reseta para nova jogada
+        forceProgress = 0;
         directionLocked = false;
         arrow.localScale = Vector3.one;
         

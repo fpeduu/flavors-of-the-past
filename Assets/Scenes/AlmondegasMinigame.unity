@@ -151,6 +151,81 @@ Transform:
   - {fileID: 791008661}
   m_Father: {fileID: 1861508452}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &62181128
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 62181129}
+  - component: {fileID: 62181131}
+  - component: {fileID: 62181130}
+  m_Layer: 5
+  m_Name: Panel - Fim de jogo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &62181129
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 62181128}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2080578719}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -129.1467, y: -104.9317}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &62181130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 62181128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.8}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &62181131
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 62181128}
+  m_CullTransparentMesh: 1
 --- !u!1 &82549235
 GameObject:
   m_ObjectHideFlags: 0
@@ -824,6 +899,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2923659432391847249, guid: ca966d349f8be5a47acc07dcde02deca, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6035508263379500377, guid: ca966d349f8be5a47acc07dcde02deca, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.29
@@ -984,7 +1063,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 2898271565381972557, guid: ca966d349f8be5a47acc07dcde02deca, type: 3}
   launchPoint: {fileID: 1887410594}
   scoreManager: {fileID: 964622666}
-  amountOfProjectiles: 8
+  amountOfProjectiles: 20
   spawnProjectilePoint: {fileID: 82549236}
   spawnOffset: {x: -1.5, y: 0, z: 0}
 --- !u!114 &1861508454
@@ -1313,6 +1392,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 543494850}
+  - {fileID: 62181129}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1350,8 +1430,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb2dac21acd7b574fb4dc87e442b350a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  baseSpeed: 1
   distance: 5
+  increaseSpeedOverTime: 1
+  maxSpeed: 10
+  timeToReachMaxSpeed: 60
 --- !u!61 &2089753235
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1386,7 +1469,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.1915847, y: 0}
+  m_Offset: {x: -0.060288593, y: 0.048230946}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1396,7 +1479,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.5568731, y: 1}
+  m_Size: {x: 1.0531265, y: 0.8177937}
   m_EdgeRadius: 0
 --- !u!4 &2089753236
 Transform:
