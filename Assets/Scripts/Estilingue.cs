@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,14 +17,13 @@ public class Slingshot : MonoBehaviour
     [SerializeField] private Transform arrow; // Objeto da seta
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private Transform launchPoint; // Ponto de spawn do projétil
-    [SerializeField] private ScoreManager scoreManager;
-
     
     [Header("Projectiles")]
     public int amountOfProjectiles;
     public Transform spawnProjectilePoint;
     public Vector3 spawnOffset;
-    private List<GameObject> projectiles = new List<GameObject>();
+    private List<GameObject> projectilesToLaunch = new List<GameObject>();
+    private bool _isProjectileFlying;
     
     private bool directionLocked = false;
     private float currentAngle;
@@ -37,13 +34,18 @@ public class Slingshot : MonoBehaviour
     private float directionProgress = 0f;
     private float forceProgress = 0f;
 
+    private GameManager gameManager;
+
     private void Start()
     {
+
+        gameManager = GameManager.Instance;
+        
         for (int i = 0; i < amountOfProjectiles; i++)
         {
             var spawnPoint = spawnProjectilePoint.position + spawnOffset * i;
             
-            projectiles.Add(Instantiate(projectilePrefab, spawnPoint, Quaternion.identity));
+            projectilesToLaunch.Add(Instantiate(projectilePrefab, spawnPoint, Quaternion.identity, this.transform));
         }
         
         SetNextProjectile();
@@ -51,8 +53,20 @@ public class Slingshot : MonoBehaviour
 
     private void Update()
     {
+        if (gameManager.isGameOver)
+        {
+            return;
+        }
+        
+        if (_isProjectileFlying)
+        {
+            return;
+        }
+
         if (!hasMoreProjectiles)
         {
+            Debug.Log("Fim de jogo!");
+            gameManager.FinishLevel();
             return;
         }
         
@@ -69,7 +83,7 @@ public class Slingshot : MonoBehaviour
             // Oscila a força do lançamento
             float t = Mathf.PingPong(forceProgress, 1);
             currentForce = Mathf.Lerp(minForce, maxForce, t);
-            arrow.localScale = new Vector3(1, 1 + (currentForce / maxForce), 1);
+            arrow.localScale = new Vector3(1, 1 + (currentForce - minForce) / (maxForce - minForce), 1);
             forceProgress += Time.deltaTime * forceSpeed;
         }
 
@@ -92,42 +106,42 @@ public class Slingshot : MonoBehaviour
 
     private void LaunchProjectile()
     {
+        var projectile = projectilesToLaunch[projectilesToLaunch.Count - 1];
+        projectilesToLaunch.RemoveAt(projectilesToLaunch.Count - 1);
+        _isProjectileFlying = true;
         
-        var projectile = projectiles[projectiles.Count - 1];
-        projectiles.RemoveAt(projectiles.Count - 1);
-        
-        projectile.transform.position = launchPoint.position;
-        
-        // Ativa o colisor
-        projectile.GetComponent<Collider2D>().enabled = true;
+        var almondega = projectile.GetComponent<Almondega>();
+
+        almondega.OnHitSomething += SetNextProjectile;
         
         // aplica força no projectile
-        Rigidbody2D projectileRb = projectile.GetComponent<Rigidbody2D>();
         Vector2 launchDirection = (Quaternion.Euler(0, 0, currentAngle) * Vector2.up).normalized;
-        projectileRb.AddForce(launchDirection * currentForce, ForceMode2D.Impulse);
+        almondega.Launch(launchDirection, currentForce);
         
-        // Inscreve o evento para contar os pontos
-        projectile.GetComponent<Almondega>().OnHitPanela += scoreManager.AddScore;
+        // Esconde a seta
+        arrow.localScale = Vector3.zero;
 
-        // Reseta para nova jogada
-        forceProgress = 0;
-        directionLocked = false;
-        arrow.localScale = Vector3.one;
-        
-        SetNextProjectile();
     }
+    
 
     private void SetNextProjectile()
     {
-        if (projectiles.Count <= 0)
+        _isProjectileFlying = false;
+        
+        if (projectilesToLaunch.Count <= 0)
         {
             hasMoreProjectiles = false;
             return;
         }
+        
+        forceProgress = 0;
+        directionLocked = false;
+        arrow.localScale = Vector3.one;
+
         hasMoreProjectiles = true;
-        var projectile = projectiles[projectiles.Count - 1];
+        var projectile = projectilesToLaunch[projectilesToLaunch.Count - 1];
         projectile.transform.position = launchPoint.position;
 
-        projectile.GetComponent<TrailRenderer>().enabled = true;
+        
     }
 }

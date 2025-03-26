@@ -97,7 +97,7 @@ public class BreadCutter : MonoBehaviour
 
         hasCut = true;
         
-        GameManager.Instance.ShowNextButton(true);
+        // GameManager.Instance.ShowNextButton(true);
         Destroy(gameObject);
     }
 

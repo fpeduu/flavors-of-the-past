@@ -80,6 +80,6 @@ public class StackManager : MonoBehaviour
 
     public void FinishMinigame()
     {
-        GameManager.Instance.ShowNextButton(true);
+        // GameManager.Instance.ShowNextButton(true);
     }
 }

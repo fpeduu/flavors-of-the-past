@@ -1,12 +1,10 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using TMPro; // If using TextMeshPro
+using TMPro;
 
 public class ScoreManager : MonoBehaviour
 {
     public TextMeshProUGUI pontuacaoText; // Reference to a TextMeshPro UI element
     private int pontuacao = 0;            // Current score
-
     void Start()
     {
         UpdateScoreUI();

@@ -1,79 +1,90 @@
-using System;
 using TMPro;
 using UnityEngine;
+using System;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance;
+    #region Singleton
+    public static GameManager Instance { get; private set; }
 
     private void Awake()
     {
-        Instance = this;
-    }
+        if (Instance == null)
+        {
+            Instance = this;
+            return;
+        }
 
-    public GameObject[] miniGames; // Lista de Mini-Games (Painéis ou GameObjects)
-    public TextMeshProUGUI instructionText;
+        Destroy(gameObject);
+    }
+    #endregion
+
+
+    public bool isGameOver = false;
     
-    private int currentStep = 0;
-
-    public GameObject nextButton;
-
-    void Start()
-    {
-        StartRecipe();
-    }
-
-    void StartRecipe()
-    {
-        currentStep = 0;
-        ShowMiniGame(currentStep);
-    }
-
-    void ShowMiniGame(int stepIndex)
-    {
-        // Desativa todos os mini-games
-        foreach (GameObject game in miniGames)
-        {
-            game.SetActive(false);
-        }
-
-        if (stepIndex < miniGames.Length)
-        {
-            // Ativa o mini-game atual
-            miniGames[stepIndex].SetActive(true);
-            
-            // Atualiza a instrução na tela
-            instructionText.text = GetInstructionForStep(stepIndex);
-
-        }
-        else
-        {
-            // Se acabou a receita, mostra a tela final
-            instructionText.text = "Receita concluída!";
-            Debug.Log("Jogo Finalizado!");
-        }
-    }
-
-    public void ShowNextButton(bool show)
-    {
-        nextButton.SetActive(show);
-    }
-
-    public void CompleteMiniGame()
-    {
-        currentStep++;
-        ShowMiniGame(currentStep);
-        ShowNextButton(false);
-    }
+    #region Score Management
+    [Header("Score management")]
+    [Tooltip("Number of notes needed to increase multiply value")]
+    [SerializeField] private int streakSequence = 7;
+    [Tooltip("Max multiply value")]
+    [SerializeField] private int maxMultiply = 4;
     
-    string GetInstructionForStep(int step)
+    public event Action<int> OnLevelFinish;
+    [Space]
+    [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private TextMeshProUGUI multiplierText;
+    [SerializeField] private Slider hitStreakSlider;
+
+    private int _score;
+    private int _hitStreak;
+    private int _multiplyValue;
+
+    public void IncrementScore(int score)
     {
-        switch (step)
+        _score += score * _multiplyValue;
+        scoreText.text = "Score: " + _score;
+        _hitStreak++;
+
+        if (_hitStreak >= streakSequence && _multiplyValue < maxMultiply)
         {
-            case 0: return "Hora de cortar o pão!";
-            case 1: return "Asse a carne!";
-            case 2: return "Hora de montar!";
-            default: return "Finalizando...";
+            IncrementMultiplier();
+            _hitStreak = 0;
         }
+        hitStreakSlider.value = _hitStreak;
+    }
+
+    public void ResetStreak()
+    {
+        _hitStreak = 0;
+        hitStreakSlider.value = _hitStreak;
+        _multiplyValue = 1;
+        multiplierText.text = "x" + _multiplyValue;
+    }
+
+    void IncrementMultiplier()
+    {
+        _multiplyValue++;
+        multiplierText.text = "x" + _multiplyValue;
+    }
+    private void ResetScore()
+    {
+        _score = 0;
+        scoreText.text = "Score: " + _score;
+        ResetStreak();
+    }
+
+    #endregion
+
+    public void FinishLevel()
+    {
+        isGameOver = true;
+        OnLevelFinish?.Invoke(_score);
+    }
+
+    private void Start()
+    {
+        ResetScore();
+        hitStreakSlider.maxValue = streakSequence;
     }
 }
