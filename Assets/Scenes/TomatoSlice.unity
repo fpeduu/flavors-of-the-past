@@ -637,8 +637,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -773,8 +773,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -859,7 +859,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1425933302
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -904,7 +904,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2025605765834895199, guid: f8070620482f17e8a868f3533aa13948, type: 3}
+  m_Sprite: {fileID: 1208040086343421634, guid: f23f1002f3e459368a82bc5fc71a8200, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -924,8 +924,8 @@ Transform:
   m_GameObject: {fileID: 1425933301}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.23, y: 1.33, z: 0}
-  m_LocalScale: {x: 1.5905961, y: 1.3162978, z: 1.3602866}
+  m_LocalPosition: {x: -0.4, y: -0.37, z: 0}
+  m_LocalScale: {x: 2.9164832, y: 2.4135356, z: 2.4941924}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -993,6 +993,7 @@ MonoBehaviour:
   cutSound: {fileID: 8300000, guid: 2d9b223fbc3f94e4cb7062e2d2cfab7e, type: 3}
   audioSource: {fileID: 1112109257}
   swipeEffectPrefab: {fileID: 4168554507674655897, guid: bcae00d8377c5b1fca236517b5af93b8, type: 3}
+  trailColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!4 &1908014011
 Transform:
   m_ObjectHideFlags: 0
