@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a325f228bdc6447d2b4a0d185c5366c6
+guid: 229e6de47db598544bae93315c9a3a0e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3962807554240710951
-    second: tomato_0
+      213: 2467491259192402747
+    second: image-removebg-preview (9)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tomato_0
+      name: estilingue
       rect:
         serializedVersion: 2
-        x: 101
-        y: 92
-        width: 291
-        height: 299
+        x: 267
+        y: 87
+        width: 78
+        height: 103
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9d67f3876874109c0800000000000000
-      internalID: -3962807554240710951
+      spriteID: b336b861a3a4e3220800000000000000
+      internalID: 2467491259192402747
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: c6447dc80fc1d95499f8f8f85679e93e
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      tomato_0: -3962807554240710951
+      estilingue: 2467491259192402747
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
