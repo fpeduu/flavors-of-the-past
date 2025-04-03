@@ -1,0 +1,567 @@
+fileFormatVersion: 2
+guid: b57fc39d2da588147adf9aea7cb1852a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4016010420113268955
+    second: pasta_sprite_0
+  - first:
+      213: -4894298649654979413
+    second: pasta_sprite_1
+  - first:
+      213: -6451066345083540529
+    second: pasta_sprite_2
+  - first:
+      213: -3302253653737933040
+    second: pasta_sprite_3
+  - first:
+      213: 6208214991164176826
+    second: pasta_sprite_4
+  - first:
+      213: 549723759257846482
+    second: pasta_sprite_5
+  - first:
+      213: -1559492159871220911
+    second: pasta_sprite_6
+  - first:
+      213: 5710849729246348123
+    second: pasta_sprite_7
+  - first:
+      213: -6043137752982846258
+    second: pasta_sprite_8
+  - first:
+      213: -5074018788284450637
+    second: pasta_sprite_9
+  - first:
+      213: -4583650143783945316
+    second: pasta_sprite_10
+  - first:
+      213: 3340622383447699515
+    second: pasta_sprite_11
+  - first:
+      213: -5483606587779794623
+    second: pasta_sprite_12
+  - first:
+      213: 6244855901082306855
+    second: pasta_sprite_13
+  - first:
+      213: 4730174795841462918
+    second: pasta_sprite_14
+  - first:
+      213: -5677310823056609221
+    second: pasta_sprite_15
+  - first:
+      213: -2785610591455920470
+    second: pasta_sprite_16
+  - first:
+      213: 5845019450624482871
+    second: pasta_sprite_17
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: pasta_sprite_0
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 178
+        width: 11
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52f91e6fcc34448c0800000000000000
+      internalID: -4016010420113268955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasta_sprite_1
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 169
+        width: 16
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba414aa2f45f31cb0800000000000000
+      internalID: -4894298649654979413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasta_sprite_2
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 163
+        width: 20
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fcb61de96553976a0800000000000000
+      internalID: -6451066345083540529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasta_sprite_3
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 164
+        width: 24
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 017f6ba4cc90c22d0800000000000000
+      internalID: -3302253653737933040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasta_sprite_4
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 163
+        width: 20
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab9789554a2082650800000000000000
+      internalID: 6208214991164176826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasta_sprite_5
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 165
+        width: 20
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d20823b8d201a700800000000000000
+      internalID: 549723759257846482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasta_sprite_6
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 101
+        width: 12
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1538ed4a4229b5ae0800000000000000
+      internalID: -1559492159871220911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasta_sprite_7
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 97
+        width: 21
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b534d554293014f40800000000000000
+      internalID: 5710849729246348123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasta_sprite_8
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 97
+        width: 25
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec484b84b36722ca0800000000000000
+      internalID: -6043137752982846258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasta_sprite_9
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 99
+        width: 26
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b8b5ac9bc67599b0800000000000000
+      internalID: -5074018788284450637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasta_sprite_10
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 97
+        width: 25
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9bf61dba7a9360c0800000000000000
+      internalID: -4583650143783945316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasta_sprite_11
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 98
+        width: 25
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b307e1ebb564c5e20800000000000000
+      internalID: 3340622383447699515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasta_sprite_12
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 29
+        width: 19
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 149b46f9cd056e3b0800000000000000
+      internalID: -5483606587779794623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasta_sprite_13
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 29
+        width: 28
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7294389fa5f2aa650800000000000000
+      internalID: 6244855901082306855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasta_sprite_14
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 30
+        width: 29
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 682e2af4ae4f4a140800000000000000
+      internalID: 4730174795841462918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasta_sprite_15
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 31
+        width: 29
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b30fa38d2e32631b0800000000000000
+      internalID: -5677310823056609221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasta_sprite_16
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 30
+        width: 30
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aae34b50de58759d0800000000000000
+      internalID: -2785610591455920470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasta_sprite_17
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 31
+        width: 28
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73e98bbd83ead1150800000000000000
+      internalID: 5845019450624482871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
