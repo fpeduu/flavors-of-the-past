@@ -68,7 +68,7 @@ public class MenuSelector : MonoBehaviour
         if (selectedIndex == 0)
         {
             // "Jogar" selected
-            SceneManager.LoadScene("GameScene");
+            SceneManager.LoadScene("RecipeSelection");
         }
         else
         {
