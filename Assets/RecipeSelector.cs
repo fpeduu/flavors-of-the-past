@@ -67,7 +67,7 @@ public class RecipeSelector : MonoBehaviour
         // If the selected index is 1, load the "MacarraoMinigame" scene
         if (currentIndex == 1)
         {
-            SceneManager.LoadScene("MacarraoMinigame");
+            SceneManager.LoadScene("MinigameSelection");
         }
         else
         {
