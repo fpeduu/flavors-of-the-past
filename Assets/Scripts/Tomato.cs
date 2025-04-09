@@ -114,6 +114,13 @@ public class Tomato : MonoBehaviour
         Destroy(gameObject, 1f);
     }
 
+    private float difficultyMultiplier = 0f;
+    public void SetDifficultyMultiplier(float multiplier)
+    {
+        difficultyMultiplier = Mathf.Clamp01(multiplier);
+    }
+
+
     private void UpdateSprite(Sprite newSprite)
     {
         if (newSprite != null && spriteRenderer != null)

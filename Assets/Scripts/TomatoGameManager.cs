@@ -12,7 +12,7 @@ public class TomatoGameManager : MonoBehaviour
     public TextMeshProUGUI comboText;
 
     [Header("Game Settings")]
-    public float totalGameTime = 33f;
+    public float totalGameTime = 63f;
     public float spawnStartDelay = 3f;
 
     [Header("Combo Settings")]
@@ -96,6 +96,7 @@ public class TomatoGameManager : MonoBehaviour
 
     public int GetCurrentScore() => currentScore;
     public int GetCurrentCombo() => currentCombo;
+    public float GetTimeRemaining() => Mathf.CeilToInt(timeRemaining);
 
     void UpdateScoreDisplay(int newScore)
     {

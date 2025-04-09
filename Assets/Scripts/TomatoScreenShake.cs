@@ -35,8 +35,8 @@ public class ScreenShake : MonoBehaviour
 
     public void ShakeByCombo(int combo)
     {
-        float duration = 0.1f + combo * 0.05f;
-        float magnitude = 0.05f + combo * 0.02f;
+        float duration = Mathf.Clamp(0.1f + combo * 0.05f, 0.1f, 0.5f);
+        float magnitude = Mathf.Clamp(0.05f + combo * 0.02f, 0.05f, 0.2f);
         Shake(duration, magnitude);
     }
 }
