@@ -2464,6 +2464,10 @@ MonoBehaviour:
   scoreText: {fileID: 543494851}
   multiplierText: {fileID: 516070573}
   hitStreakSlider: {fileID: 657092832}
+  highscoreKey: Highscore_Game2
+  highscore: 0
+  endPanel: {fileID: 0}
+  finalScoreText: {fileID: 0}
 --- !u!4 &1722657715
 Transform:
   m_ObjectHideFlags: 0
