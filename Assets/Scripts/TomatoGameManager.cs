@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using TMPro;
 
 public class TomatoGameManager : MonoBehaviour
@@ -19,8 +20,17 @@ public class TomatoGameManager : MonoBehaviour
     [SerializeField] private float comboDisplayTime = 1.5f;
 
     private float timeRemaining;
-    private bool isGameActive = true;
+    public bool isGameActive = true;
     private float comboDisplayTimer;
+
+    public int MaxComboMultiplier = 5;
+    public UnityEvent<int> OnScoreChanged = new UnityEvent<int>();
+    public UnityEvent<int> OnComboChanged = new UnityEvent<int>();
+
+    private int currentScore;
+    private int currentCombo;
+    private float lastCutTime;
+    private float comboTimeout = 2f;
 
     void Awake()
     {
@@ -31,9 +41,7 @@ public class TomatoGameManager : MonoBehaviour
     void Start()
     {
         timeRemaining = totalGameTime;
-        ScoreManager.Instance.OnScoreChanged.AddListener(UpdateScoreDisplay);
-        ScoreManager.Instance.OnComboChanged.AddListener(UpdateComboDisplay);
-        UpdateScoreDisplay(ScoreManager.Instance.GetCurrentScore());
+        UpdateScoreDisplay(TomatoGameManager.Instance.GetCurrentScore());
         UpdateTimerDisplay();
     }
 
@@ -44,12 +52,8 @@ public class TomatoGameManager : MonoBehaviour
         timeRemaining -= Time.deltaTime;
         comboDisplayTimer += Time.deltaTime;
 
+        UpdateScoreDisplay(currentScore);
         UpdateTimerDisplay();
-
-        if (comboDisplayTimer >= comboDisplayTime)
-        {
-            comboText.text = "";
-        }
 
         if (timeRemaining <= 0)
         {
@@ -58,25 +62,44 @@ public class TomatoGameManager : MonoBehaviour
             EndGame();
             UpdateTimerDisplay();
         }
+
+        if (Time.time - lastCutTime > comboTimeout && currentCombo > 0)
+        {
+            ResetCombo();
+        }
     }
+
+    public void AddScore(int points)
+    {
+        int multiplier = Mathf.FloorToInt(currentCombo / 2f);
+        currentScore += points * Mathf.Max(1, multiplier); // Ensure at least x1 multiplier
+        Debug.Log($"Current Score: {currentScore}");
+
+        currentCombo++;
+        Debug.Log($"Current Combo: {currentCombo}");
+        OnComboChanged.Invoke(currentCombo);
+        lastCutTime = Time.time;
+    }
+
+    public void RemoveScore(int points)
+    {
+        currentScore -= points;
+        if (currentScore < 0) currentScore = 0;
+        OnScoreChanged.Invoke(currentScore);
+    }
+
+    public void ResetCombo()
+    {
+        currentCombo = 0;
+        OnComboChanged.Invoke(currentCombo);
+    }
+
+    public int GetCurrentScore() => currentScore;
+    public int GetCurrentCombo() => currentCombo;
 
     void UpdateScoreDisplay(int newScore)
     {
         scoreText.text = $"Score: {newScore}";
-    }
-
-    void UpdateComboDisplay(int combo)
-    {
-        if (combo > 1)
-        {
-            comboDisplayTimer = 0f;
-            comboText.text = $"{combo}x COMBO!";
-            comboText.color = comboColors[Mathf.Clamp(combo - 1, 0, comboColors.Length - 1)];
-        }
-        else
-        {
-            comboText.text = "";
-        }
     }
 
     void UpdateTimerDisplay()
@@ -94,7 +117,7 @@ public class TomatoGameManager : MonoBehaviour
     void EndGame()
     {
         // Add end-game logic here
-        Debug.Log($"Final Score: {ScoreManager.Instance.GetCurrentScore()}");
+        Debug.Log($"Final Score: {TomatoGameManager.Instance.GetCurrentScore()}");
     }
 
     public bool IsGameActive() => isGameActive;

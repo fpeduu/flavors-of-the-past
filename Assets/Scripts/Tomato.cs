@@ -87,8 +87,8 @@ public class Tomato : MonoBehaviour
 
         if (!isRotten)
         {
-            ScoreManager.Instance.ResetCombo();
-            ScoreManager.Instance.AddScore(-5);
+            TomatoGameManager.Instance.ResetCombo();
+            TomatoGameManager.Instance.RemoveScore(5);
         }
 
         Destroy(gameObject, 2f);
@@ -103,12 +103,12 @@ public class Tomato : MonoBehaviour
 
         if (!isRotten)
         {
-            ScoreManager.Instance.AddScore(10); // Normal cut with combo
+            TomatoGameManager.Instance.AddScore(10); // Normal cut with combo
         }
         else
         {
-            ScoreManager.Instance.ResetCombo(); // Reset combo for rotten tomatoes
-            ScoreManager.Instance.AddScore(-10);
+            TomatoGameManager.Instance.ResetCombo(); // Reset combo for rotten tomatoes
+            TomatoGameManager.Instance.RemoveScore(-10);
         }
 
         Destroy(gameObject, 1f);
