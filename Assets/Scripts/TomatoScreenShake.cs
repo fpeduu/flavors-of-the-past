@@ -2,37 +2,41 @@ using UnityEngine;
 
 public class ScreenShake : MonoBehaviour
 {
-    public static ScreenShake Instance;
+    private Vector3 originalPosition;
+    private float shakeDuration = 0f;
+    private float shakeMagnitude = 0.1f;
 
-    private float shakeDuration;
-    private float shakeMagnitude;
-    private float dampingSpeed;
-    private Vector3 initialPosition;
-
-    private void Awake()
+    void Start()
     {
-        Instance = this;
-        initialPosition = transform.localPosition;
+        originalPosition = transform.localPosition;
     }
 
-    public void TriggerShake(float duration, float magnitude, float damping)
-    {
-        shakeDuration = duration;
-        shakeMagnitude = magnitude;
-        dampingSpeed = damping;
-    }
-
-    private void Update()
+    void Update()
     {
         if (shakeDuration > 0)
         {
-            transform.localPosition = initialPosition + Random.insideUnitSphere * shakeMagnitude;
-            shakeDuration -= Time.deltaTime * dampingSpeed;
+            Vector2 shakeOffset = Random.insideUnitCircle * shakeMagnitude;
+            transform.localPosition = originalPosition + new Vector3(shakeOffset.x, shakeOffset.y, 0f);
+
+            shakeDuration -= Time.deltaTime;
         }
         else
         {
-            shakeDuration = 0f;
-            transform.localPosition = initialPosition;
+            transform.localPosition = originalPosition;
         }
+    }
+
+    // Public method to trigger the shake
+    public void Shake(float duration, float magnitude)
+    {
+        shakeDuration = duration;
+        shakeMagnitude = magnitude;
+    }
+
+    public void ShakeByCombo(int combo)
+    {
+        float duration = 0.1f + combo * 0.05f;
+        float magnitude = 0.05f + combo * 0.02f;
+        Shake(duration, magnitude);
     }
 }
