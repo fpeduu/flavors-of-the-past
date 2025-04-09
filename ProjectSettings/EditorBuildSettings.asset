@@ -20,6 +20,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MinigameSelection.unity
     guid: 5a99ed7e94b3d114986757a4bee6760a
+  - enabled: 1
+    path: Assets/Scenes/TomatoSlice.unity
+    guid: c2dbb5537d25c0b9c87e378d9ee25e6a
+  - enabled: 1
+    path: Assets/Scenes/MinigameMacarraoFinal.unity
+    guid: a4647241a87af9a4796eecff5a295687
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02

@@ -27,7 +27,7 @@ public class Escorredor : MonoBehaviour
     public float oscillationFrequency = 0.5f;
 
     // Game duration and timer.
-    public float gameDuration = 15f;
+    public float gameDuration = 25f;
     private float gameTimeRemaining;
     private bool gameActive = true;
 

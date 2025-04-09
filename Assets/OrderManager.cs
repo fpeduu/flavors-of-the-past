@@ -34,6 +34,10 @@ public class OrderManager : MonoBehaviour
     public int penaltyPerUnit = 10;
     private int totalScore = 0;
 
+    // Opção: chave do PlayerPrefs para armazenar o highscore
+    private string highscoreKey = "Highscore_Game";
+    private int highscore;
+
     private void Awake()
     {
         // Implementação do Singleton
@@ -45,6 +49,9 @@ public class OrderManager : MonoBehaviour
 
     private void Start()
     {
+        // Carrega o highscore salvo (ou 0 se não existir)
+        highscore = PlayerPrefs.GetInt(highscoreKey, 0);
+
         // Define o pedido inicial (exemplo: 4 macarrões, 5 almôndegas, 3 molho)
         requiredMacarrao = 4;
         requiredAlmondegas = 5;
@@ -54,7 +61,7 @@ public class OrderManager : MonoBehaviour
         UpdateUI();
     }
 
-    // Este método é chamado quando um ingrediente é adicionado (via drop)
+    // Adicionar Ingrediente
     public void AddIngredient(string ingredientType)
     {
         switch (ingredientType.ToLower())
@@ -80,7 +87,6 @@ public class OrderManager : MonoBehaviour
     }
 
     // Método para avaliar o prato (por exemplo, quando o jogador aperta a campainha)
-    // Você pode chamar esse método via um botão na UI.
     public void EvaluateDish()
     {
         // Calcula a diferença entre o que foi colocado e o que foi pedido
@@ -92,7 +98,10 @@ public class OrderManager : MonoBehaviour
         int dishScore = Mathf.Max(perfectScore - totalPenalty, 0);
 
         totalScore += dishScore;
-        Debug.Log("Prato avaliado. Pontos: " + dishScore + ". Total de pontos: " + totalScore);
+        Debug.Log("Prato avaliado. Pontos obtidos: " + dishScore + ". Pontuação total: " + totalScore);
+
+        // Verifica e salva highscore
+        CheckAndSaveHighscore();
 
         if (totalScoreText != null)
             totalScoreText.text = "Total Score: " + totalScore;
@@ -107,6 +116,18 @@ public class OrderManager : MonoBehaviour
         // Opcional: gerar um novo pedido com quantidades diferentes
         GenerateNewOrder();
         UpdateUI();
+    }
+
+    // Checa e salva o highscore
+    private void CheckAndSaveHighscore()
+    {
+        if (totalScore > highscore)
+        {
+            highscore = totalScore;
+            PlayerPrefs.SetInt(highscoreKey, highscore);
+            PlayerPrefs.Save();
+            Debug.Log("Novo Highscore: " + highscore);
+        }
     }
 
     // Reseta os contadores dos ingredientes
@@ -146,12 +167,12 @@ public class OrderManager : MonoBehaviour
     // Gera novos valores para o próximo pedido (exemplo com valores randomizados)
     void GenerateNewOrder()
     {
-        requiredMacarrao = Random.Range(3, 6);   // 3 a 5
+        requiredMacarrao = Random.Range(3, 6);     // 3 a 5
         requiredAlmondegas = Random.Range(4, 7);   // 4 a 6
         requiredMolho = Random.Range(2, 5);        // 2 a 4
     }
 
-    // Limpa os ingredientes (remove os objetos UI filhos do prato) – deve ser chamado após avaliação.
+    // Limpa os ingredientes (remove os objetos UI filhos do prato)
     void ClearDish()
     {
         // Pressupondo que o prato (objeto com tag "Dish") é único na cena
@@ -163,5 +184,11 @@ public class OrderManager : MonoBehaviour
                 Destroy(child.gameObject);
             }
         }
+    }
+
+    // Método para retornar a pontuação total atual (usado pelo GameTimer no final do tempo)
+    public int GetTotalScore()
+    {
+        return totalScore;
     }
 }

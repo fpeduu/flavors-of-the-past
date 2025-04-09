@@ -1836,8 +1836,8 @@ MonoBehaviour:
   minigameSceneNames:
   - MacarraoMinigame
   - AlmondegasMinigame
-  - MacarraoMinigame
-  - MacarraoMinigame
+  - TomatoSlice
+  - MacarraoMinigameFinal
   buttons:
   - {fileID: 746641901}
   - {fileID: 1886854923}
