@@ -7,13 +7,10 @@ public class SwipeHandler : MonoBehaviour
     public AudioSource audioSource;
 
     [Header("Swipe Effect")]
-    public GameObject swipeEffectPrefab;
+    public GameObject swipeEffectPrefab; // Assign a prefab with TrailRenderer
     private GameObject currentSwipeEffect;
     private Vector3 lastMousePosition;
     private bool isSwiping;
-
-    [Header("Trail Settings")]
-    public Color trailColor = Color.green;
 
     void Awake()
     {
@@ -54,8 +51,6 @@ public class SwipeHandler : MonoBehaviour
         {
             trail.sortingLayerName = "Foreground";
             trail.sortingOrder = 10;
-            trail.startColor = trailColor;
-            trail.endColor = new Color(trailColor.r, trailColor.g, trailColor.b, 0);
         }
     }
 

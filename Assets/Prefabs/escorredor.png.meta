@@ -309,7 +309,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      escorredor_0: 8981412304057645022
+      escorredor_1: 3016502061144362711
+      escorredor_2: -122314666330975258
+      escorredor_3: -7770398747442534047
+      escorredor_4: 2394624252137369157
+      escorredor_5: -3950527071884075506
+      escorredor_6: 7679801199691303546
+      escorredor_7: -3092082852968623589
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
