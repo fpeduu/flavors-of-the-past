@@ -16,44 +16,30 @@ public class Tomato : MonoBehaviour
     public float spawnProtectionTime = 0.2f;
 
     [Header("Tomato Sprite")]
-    public Sprite rottenTomatoSprite;  // Reference to the rotten tomato sprite
-    public Sprite cutTomatoSprite;  // Reference to the cut tomato sprite
+    public Sprite rottenTomatoSprite;
+    public Sprite cutTomatoSprite;
     public Sprite smashedTomatoSprite;
     private SpriteRenderer spriteRenderer;
     private bool isRotten;
     public bool hasBeenCut = false;
 
     [Header("Audio")]
-    public AudioClip hitGroundSound;  // Sound when the tomato hits the ground
+    public AudioClip hitGroundSound;
     public AudioSource audioSource;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();  // Get the SpriteRenderer component
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
         isRotten = Random.value < 0.1f; // 10% chance of being rotten
-
-        if (isRotten)
+        if (isRotten && rottenTomatoSprite != null)
         {
-            if (rottenTomatoSprite != null && spriteRenderer != null)
-            {
-                spriteRenderer.sprite = rottenTomatoSprite;  // Change the sprite
-            }
+            spriteRenderer.sprite = rottenTomatoSprite;
         }
 
-        if (rb != null)
-        {
-            float verticalForce = Random.Range(minUpwardForce, maxUpwardForce);
-            float horizontalForce = Random.Range(minLateralForce, maxLateralForce);
-
-            rb.AddForce(new Vector2(horizontalForce, verticalForce), ForceMode2D.Impulse);
-        }
-
-        if (audioSource == null)
-        {
-            audioSource = GetComponent<AudioSource>();
-        }
+        ApplyInitialForces();
+        InitializeAudioSource();
     }
 
     void Update()
@@ -63,49 +49,100 @@ public class Tomato : MonoBehaviour
 
         if (hasHitGround || hasBeenCut) return;
 
+        CheckGroundCollision();
+    }
+
+    private void ApplyInitialForces()
+    {
+        if (rb != null)
+        {
+            float verticalForce = Random.Range(minUpwardForce, maxUpwardForce);
+            float horizontalForce = Random.Range(minLateralForce, maxLateralForce);
+            rb.AddForce(new Vector2(horizontalForce, verticalForce), ForceMode2D.Impulse);
+        }
+    }
+
+    private void InitializeAudioSource()
+    {
+        if (audioSource == null)
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
+    }
+
+    private void CheckGroundCollision()
+    {
         if (transform.position.y <= -4f)
         {
-            hasHitGround = true;
-            if (cutTomatoSprite != null && spriteRenderer != null)
-            {
-                spriteRenderer.sprite = smashedTomatoSprite;  // Change the sprite
-            }
-
-            if (hitGroundSound != null && audioSource != null)
-            {
-                audioSource.PlayOneShot(hitGroundSound);
-            }
-
-            rb.linearVelocity = Vector2.zero; // Reset velocity when hitting the ground
-            rb.gravityScale = 0;
-            if (!isRotten)
-            {
-              TomatoGameManager.Instance.UpdateScore(-5);
-            }
-            Destroy(gameObject, 2f);
+            HandleGroundHit();
         }
+    }
+
+    private void HandleGroundHit()
+    {
+        hasHitGround = true;
+        UpdateSprite(smashedTomatoSprite);
+        PlaySound(hitGroundSound);
+        StopMovement();
+
+        if (!isRotten)
+        {
+            TomatoGameManager.Instance.ResetCombo();
+            TomatoGameManager.Instance.RemoveScore(5);
+        }
+
+        Destroy(gameObject, 2f);
     }
 
     public void Cut()
     {
         if (hasHitGround || hasBeenCut) return;
 
-        hasBeenCut = true;  // Set the flag to true
-
-        // Change the sprite to the cut version
-        if (cutTomatoSprite != null && spriteRenderer != null)
-        {
-            spriteRenderer.sprite = cutTomatoSprite;  // Change the sprite
-        }
+        hasBeenCut = true;
+        UpdateSprite(cutTomatoSprite);
 
         if (!isRotten)
         {
-          TomatoGameManager.Instance.UpdateScore(10);
+            TomatoGameManager.Instance.AddScore(10); // Normal cut with combo
         }
         else
         {
-          TomatoGameManager.Instance.UpdateScore(-10);
+            TomatoGameManager.Instance.ResetCombo(); // Reset combo for rotten tomatoes
+            TomatoGameManager.Instance.RemoveScore(-10);
         }
-        Destroy(gameObject, 1f); // Delay destruction after the cut effect
+
+        Destroy(gameObject, 1f);
+    }
+
+    private float difficultyMultiplier = 0f;
+    public void SetDifficultyMultiplier(float multiplier)
+    {
+        difficultyMultiplier = Mathf.Clamp01(multiplier);
+    }
+
+
+    private void UpdateSprite(Sprite newSprite)
+    {
+        if (newSprite != null && spriteRenderer != null)
+        {
+            spriteRenderer.sprite = newSprite;
+        }
+    }
+
+    private void PlaySound(AudioClip clip)
+    {
+        if (clip != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(clip);
+        }
+    }
+
+    private void StopMovement()
+    {
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector2.zero;
+            rb.gravityScale = 0;
+        }
     }
 }

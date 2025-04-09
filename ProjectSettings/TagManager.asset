@@ -11,7 +11,6 @@ TagManager:
   - Macarrao
   - Panela
   - Bounds
-  - Dish
   layers:
   - Default
   - TransparentFX
@@ -49,8 +48,8 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: New Layer 1
-    uniqueID: 2481121081
+  - name: Foreground
+    uniqueID: 370864499
     locked: 0
   m_RenderingLayers:
   - Default
