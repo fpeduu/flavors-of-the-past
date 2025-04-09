@@ -1,6 +1,8 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Events;
 using TMPro;
+using System.Collections; // Required for coroutines
 
 public class TomatoGameManager : MonoBehaviour
 {
@@ -14,6 +16,7 @@ public class TomatoGameManager : MonoBehaviour
     [Header("Game Settings")]
     public float totalGameTime = 63f;
     public float spawnStartDelay = 3f;
+    public float endGameDelay = 3f;
 
     [Header("Combo Settings")]
     [SerializeField] private Color[] comboColors;
@@ -41,7 +44,7 @@ public class TomatoGameManager : MonoBehaviour
     void Start()
     {
         timeRemaining = totalGameTime;
-        UpdateScoreDisplay(TomatoGameManager.Instance.GetCurrentScore());
+        UpdateScoreDisplay(GetCurrentScore());
         UpdateTimerDisplay();
     }
 
@@ -59,7 +62,7 @@ public class TomatoGameManager : MonoBehaviour
         {
             timeRemaining = 0;
             isGameActive = false;
-            EndGame();
+            StartCoroutine(DelayedEndGame());
             UpdateTimerDisplay();
         }
 
@@ -117,8 +120,15 @@ public class TomatoGameManager : MonoBehaviour
 
     void EndGame()
     {
-        // Add end-game logic here
-        Debug.Log($"Final Score: {TomatoGameManager.Instance.GetCurrentScore()}");
+        Debug.Log($"Final Score: {GetCurrentScore()}");
+        SceneManager.LoadScene("RecipeSelection");
+    }
+
+    IEnumerator DelayedEndGame()
+    {
+        Debug.Log($"Game over. Waiting {endGameDelay} seconds before switching scenes.");
+        yield return new WaitForSeconds(endGameDelay);
+        EndGame();
     }
 
     public bool IsGameActive() => isGameActive;
