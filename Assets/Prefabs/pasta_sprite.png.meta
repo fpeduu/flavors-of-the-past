@@ -559,7 +559,25 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pasta_sprite_0: -4016010420113268955
+      pasta_sprite_1: -4894298649654979413
+      pasta_sprite_10: -4583650143783945316
+      pasta_sprite_11: 3340622383447699515
+      pasta_sprite_12: -5483606587779794623
+      pasta_sprite_13: 6244855901082306855
+      pasta_sprite_14: 4730174795841462918
+      pasta_sprite_15: -5677310823056609221
+      pasta_sprite_16: -2785610591455920470
+      pasta_sprite_17: 5845019450624482871
+      pasta_sprite_2: -6451066345083540529
+      pasta_sprite_3: -3302253653737933040
+      pasta_sprite_4: 6208214991164176826
+      pasta_sprite_5: 549723759257846482
+      pasta_sprite_6: -1559492159871220911
+      pasta_sprite_7: 5710849729246348123
+      pasta_sprite_8: -6043137752982846258
+      pasta_sprite_9: -5074018788284450637
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      burguer_0: 4525616069108085985
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

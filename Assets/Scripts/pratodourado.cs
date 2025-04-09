@@ -14,6 +14,11 @@ public class PratoDourado : MonoBehaviour
     public float resetTime = 2f;
     private float timeSinceLastHit = 0f;
 
+    public GameObject textoPontuacaoPrefab; // Prefab do texto flutuante
+    public Canvas canvas; // Canvas principal da UI
+
+
+
     // Tracks consecutive hits (static so it persists across the game; remove static if per-instance is preferred)
     private static int consecutiveHits = 0;
 
@@ -41,20 +46,27 @@ public class PratoDourado : MonoBehaviour
     {
         if (other.CompareTag("Macarrao"))
         {
-            // The pasta has been caught
             Destroy(other.gameObject);
 
-            // Reset the timer on a successful hit
             timeSinceLastHit = 0f;
-
-            // Increase consecutive hits count
             consecutiveHits++;
 
-            // Calculate the total points: base value + additional bonus for consecutive hits
             int totalValue = baseValue + (consecutiveHits - 1) * consecutiveIncrement;
             Escorredor.instance.UpdateScore(totalValue);
+
+            // Converte a posição do prato para posição em tela
+            Vector3 posicaoTela = Camera.main.WorldToScreenPoint(transform.position + Vector3.up * 0.5f);
+
+            // Instancia o prefab no Canvas
+            GameObject textoObj = Instantiate(textoPontuacaoPrefab, posicaoTela, Quaternion.identity, canvas.transform);
+
+            // Configura o texto flutuante com o valor obtido
+            PontuacaoFlutuante textoScript = textoObj.GetComponent<PontuacaoFlutuante>();
+            textoScript.Configurar(totalValue);
         }
     }
+
+
 
     public static void ResetConsecutiveHits()
     {
