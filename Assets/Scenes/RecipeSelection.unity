@@ -228,7 +228,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 200}
+  m_AnchoredPosition: {x: 0, y: 150}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &564861369
@@ -334,7 +334,7 @@ MonoBehaviour:
   recipeFrames:
   - {fileID: 1462885295}
   - {fileID: 1202297502}
-  baseOffsetY: -100
+  baseOffsetY: -150
   oscillationAmplitude: 5
   oscillationFrequency: 2
   stutterInterval: 0.1

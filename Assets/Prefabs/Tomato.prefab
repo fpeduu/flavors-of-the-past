@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2033668800966283397}
   - component: {fileID: 1194030879537680130}
   - component: {fileID: -1553194809585667224}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Tomato
   m_TagString: Tomato
   m_Icon: {fileID: 0}
@@ -165,6 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 506025322f9d490c9904b52f8ddb5723, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasHitGround: 0
   minUpwardForce: 6
   maxUpwardForce: 10
   minLateralForce: -2

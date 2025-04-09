@@ -1837,7 +1837,7 @@ MonoBehaviour:
   - MacarraoMinigame
   - AlmondegasMinigame
   - TomatoSlice
-  - MacarraoMinigameFinal
+  - MinigameMacarraoFinal
   buttons:
   - {fileID: 746641901}
   - {fileID: 1886854923}
